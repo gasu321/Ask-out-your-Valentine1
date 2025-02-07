@@ -3,12 +3,43 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Valentines Day</title>
+  <title>Valentine's Day</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     .gradient-background {
-      background: rgb(255, 208, 229);
       background: linear-gradient(180deg, rgba(255, 208, 229, 1) 0%, rgba(255, 232, 242, 1) 36%, rgba(255, 255, 255, 1) 100%);
+    }
+
+    /* Carousel Styles */
+    .carousel-container {
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      overflow: hidden;
+      width: 300px;
+      height: 150px;
+    }
+
+    .carousel {
+      display: flex;
+      width: 2400px; /* 8 images x 300px each */
+      animation: scrollCarousel 10s linear infinite;
+    }
+
+    .carousel img {
+      width: 300px;
+      height: 150px;
+      object-fit: cover;
+    }
+
+    @keyframes scrollCarousel {
+      0% {
+        transform: translateX(100%);
+      }
+      100% {
+        transform: translateX(-100%);
+      }
     }
 
     .bounce2 {
@@ -29,6 +60,21 @@
   </style>
 </head>
 <body class="gradient-background">
+  
+  <!-- Carousel Section -->
+  <div class="carousel-container">
+    <div class="carousel">
+      <img src="1.webp" alt="Image 1">
+      <img src="2.webp" alt="Image 2">
+      <img src="3.webp" alt="Image 3">
+      <img src="4.webp" alt="Image 4">
+      <img src="5.webp" alt="Image 5">
+      <img src="6.webp" alt="Image 6">
+      <img src="7.webp" alt="Image 7">
+      <img src="8.webp" alt="Image 8">
+    </div>
+  </div>
+
   <div class="flex items-center justify-center h-screen">
     <div class="flex flex-col items-center p-4">
       <img id="imageDisplay" src="./images/image1.gif" alt="Cute kitten with flowers" class="rounded-md h-[300px]" style="object-fit: cover;" />
@@ -55,9 +101,9 @@
     const responseButtons = document.getElementById('responseButtons');
   
     let noClickCount = 0;
-    let buttonHeight = 48; // Starting height in pixels
+    let buttonHeight = 48;
     let buttonWidth = 80;
-    let fontSize = 20; // Starting font size in pixels
+    let fontSize = 20;
     const imagePaths = [
       "./images/image1.gif",
       "./images/image2.gif",
@@ -72,12 +118,12 @@
       if (noClickCount < 5) {
         noClickCount++;
         imageDisplay.src = imagePaths[noClickCount];
-        buttonHeight += 35; // Increase height by 5px on each click
+        buttonHeight += 35;
         buttonWidth += 35;
-        fontSize += 25; // Increase font size by 1px on each click
-        yesButton.style.height = `${buttonHeight}px`; // Update button height
+        fontSize += 25;
+        yesButton.style.height = `${buttonHeight}px`;
         yesButton.style.width = `${buttonWidth}px`;
-        yesButton.style.fontSize = `${fontSize}px`; // Update font size
+        yesButton.style.fontSize = `${fontSize}px`;
         if (noClickCount < 6) {
           noButton.textContent = ["No", "Are you sure?", "Pookie please", "Don't do this to me :(", "You're breaking my heart", "I'm gonna cry..."][noClickCount];
         }
@@ -85,10 +131,10 @@
     });
   
     yesButton.addEventListener('click', () => {
-      imageDisplay.src = './images/image7.gif'; // Change to image7.gif
-      valentineQuestion.textContent = "Yayyy!! :3"; // Change the question text
-      responseButtons.style.display = 'none'; // Hide both buttons
-      confetti(); // Trigger confetti animation
+      imageDisplay.src = './images/image7.gif';
+      valentineQuestion.textContent = "Yayyy!! :3";
+      responseButtons.style.display = 'none';
+      confetti();
     });
   </script>  
 </body>
