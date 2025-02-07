@@ -11,28 +11,31 @@
     }
 
     /* START - Updated Carousel Styles */
-    .carousel-container {
-      position: absolute;
-      top: 15px;
-      left: 50%;
-      transform: translateX(-50%);
-      overflow: hidden;
-      width: 300px;
-      height: 150px;
-    }
+.carousel-container {
+  position: absolute;
+  top: 15px;
+  left: 50%;
+  transform: translateX(-50%);
+  overflow: hidden;
+  width: 300px;
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-    .carousel {
-      display: flex;
-      width: calc(300px * 16); /* Adjusted to include duplicate images for looping */
-      animation: scrollCarousel 20s linear infinite;
-    }
+.carousel {
+  display: flex;
+  width: fit-content; /* Adjusts to images dynamically */
+  animation: scrollCarousel 20s linear infinite;
+}
 
-    .carousel img {
-      width: 300px;
-      height: 150px;
-      object-fit: cover;
-      flex-shrink: 0;
-    }
+.carousel img {
+  width: 300px; /* Match container width */
+  height: 150px; /* Match container height */
+  object-fit: contain; /* Ensure the entire image is visible */
+  flex-shrink: 0; /* Prevents uneven resizing */
+}
 
     @keyframes scrollCarousel {
       0% {
