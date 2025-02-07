@@ -131,6 +131,8 @@
       if (noClickCount < 5) {
         noClickCount++;
         imageDisplay.src = imagePaths[noClickCount];
+           // Add mt-16 to the image after updating the src
+        imageDisplay.classList.add('mt-16');
         buttonHeight += 35;
         buttonWidth += 35;
         fontSize += 25;
