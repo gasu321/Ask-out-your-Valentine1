@@ -10,7 +10,7 @@
       background: linear-gradient(180deg, rgba(255, 208, 229, 1) 0%, rgba(255, 232, 242, 1) 36%, rgba(255, 255, 255, 1) 100%);
     }
 
-    /* Carousel Styles */
+    /* START - Updated Carousel Styles */
     .carousel-container {
       position: absolute;
       top: 15px;
@@ -23,7 +23,7 @@
 
     .carousel {
       display: flex;
-      width: 100vw; /* 8 images x 300px each */
+      width: calc(300px * 16); /* Adjusted to include duplicate images for looping */
       animation: scrollCarousel 20s linear infinite;
     }
 
@@ -31,16 +31,18 @@
       width: 300px;
       height: 150px;
       object-fit: cover;
+      flex-shrink: 0;
     }
 
     @keyframes scrollCarousel {
       0% {
-        transform: translateX(100%);
+        transform: translateX(0);
       }
       100% {
-        transform: translateX(-100%);
+        transform: translateX(-50%); /* Moves only half, since images are duplicated */
       }
     }
+    /* END - Updated Carousel Styles */
 
     .bounce2 {
       animation: bounce2 2s ease infinite;
@@ -61,7 +63,7 @@
 </head>
 <body class="gradient-background">
   
-  <!-- Carousel Section -->
+  <!-- START - Updated Carousel Section -->
   <div class="carousel-container">
     <div class="carousel">
       <img src="./images/1.webp" alt="Image 1">
@@ -72,8 +74,19 @@
       <img src="./images/6.webp" alt="Image 6">
       <img src="./images/7.webp" alt="Image 7">
       <img src="./images/8.webp" alt="Image 8">
+      
+      <!-- Duplicate images for seamless looping -->
+      <img src="./images/1.webp" alt="Image 1">
+      <img src="./images/2.webp" alt="Image 2">
+      <img src="./images/3.webp" alt="Image 3">
+      <img src="./images/4.webp" alt="Image 4">
+      <img src="./images/5.webp" alt="Image 5">
+      <img src="./images/6.webp" alt="Image 6">
+      <img src="./images/7.webp" alt="Image 7">
+      <img src="./images/8.webp" alt="Image 8">
     </div>
   </div>
+  <!-- END - Updated Carousel Section -->
 
   <div class="flex items-center justify-center h-screen">
     <div class="flex flex-col items-center p-4">
